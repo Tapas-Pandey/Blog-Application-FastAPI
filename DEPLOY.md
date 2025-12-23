@@ -27,16 +27,19 @@ Simple step-by-step guide to deploy on Vercel (Frontend) and Render (Backend) us
 4. Configure:
    - **Name**: `blog-backend`
    - **Environment**: `Python 3`
+   - **Python Version**: Select `3.11` (IMPORTANT: psycopg2-binary doesn't support Python 3.13)
    - **Build Command**: `pip install -r backend/requirements.txt`
    - **Start Command**: `cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT`
 5. Scroll down to "Environment Variables" and add:
    - `SECRET_KEY`: Generate one using `openssl rand -hex 32`
    - `ALGORITHM`: `HS256`
-   - `DATABASE_URL`: Your PostgreSQL connection string
-   - `CORS_ORIGINS`: Your frontend URL (will add after Vercel deployment)
+   - `DATABASE_URL`: Your PostgreSQL connection string (add after Step 3)
+   - `CORS_ORIGINS`: Your frontend URL (add after Step 4)
 6. Click "Create Web Service"
 7. Wait for deployment (5-10 minutes)
 8. Copy your backend URL (example: `https://blog-backend.onrender.com`)
+
+**Note**: If you see psycopg2 import errors, make sure Python version is set to 3.11, not 3.13.
 
 ---
 
@@ -52,6 +55,7 @@ Simple step-by-step guide to deploy on Vercel (Frontend) and Render (Backend) us
 4. Copy the "Internal Database URL"
 5. Go back to your backend service → Environment tab
 6. Update `DATABASE_URL` with the copied PostgreSQL URL
+7. Service will automatically redeploy
 
 ---
 
@@ -134,10 +138,16 @@ Copy the output and use it as your `SECRET_KEY`.
 
 ## Troubleshooting
 
+**psycopg2 Import Error?**
+- Make sure Python version is set to **3.11** in Render settings
+- Python 3.13 is not supported by psycopg2-binary yet
+- Check Render service settings → Python Version
+
 **Backend not working?**
 - Check Render logs for errors
 - Verify all environment variables are set
 - Ensure PostgreSQL database is running
+- Make sure Python version is 3.11
 
 **Frontend not connecting to backend?**
 - Verify `VITE_API_URL` is correct in Vercel
@@ -162,4 +172,3 @@ Change this in production!
 ---
 
 That's it! Your blog application is now live on Vercel and Render.
-
