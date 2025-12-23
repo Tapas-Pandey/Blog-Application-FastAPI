@@ -9,8 +9,9 @@ from database import get_db
 import models, schemas
 
 # CONSTANTS
-SECRET_KEY = "supersecretkey" # In production, use env variable
-ALGORITHM = "HS256"
+import os
+SECRET_KEY = os.getenv("SECRET_KEY", "supersecretkey")  # Use env variable in production
+ALGORITHM = os.getenv("ALGORITHM", "HS256")
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")

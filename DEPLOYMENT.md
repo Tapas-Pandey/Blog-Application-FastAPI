@@ -409,19 +409,28 @@ def get_db():
 
 ## Environment Variables
 
-### Backend Environment Variables
+### Backend Environment Variables (Set in Render Dashboard)
 
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `SECRET_KEY` | Secret key for JWT tokens | `your-secret-key-here` |
+| Variable | Description | Production Value |
+|----------|-------------|------------------|
+| `SECRET_KEY` | Secret key for JWT tokens | Generate with: `openssl rand -hex 32` |
 | `ALGORITHM` | JWT algorithm | `HS256` |
-| `DATABASE_URL` | Database connection string | `postgresql://user:pass@host/db` |
+| `DATABASE_URL` | Database connection string | `postgresql://bloguser:KIK5k4N1z349pUlFHEmBbfdJJIVIM4z0@dpg-d55087re5dus73bsqpd0-a/blogdb_qmgm` |
+| `CORS_ORIGINS` | Allowed frontend origins (comma-separated) | `https://blog-application-theta-sand.vercel.app,http://localhost:5173` |
 
-### Frontend Environment Variables
+### Frontend Environment Variables (Set in Vercel Dashboard)
 
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `VITE_API_URL` | Backend API URL | `https://blog-backend.onrender.com` |
+| Variable | Description | Production Value |
+|----------|-------------|------------------|
+| `VITE_API_URL` | Backend API URL | `https://blog-application-fastapi.onrender.com` |
+
+### Production URLs
+
+- **Frontend**: https://blog-application-theta-sand.vercel.app/
+- **Backend**: https://blog-application-fastapi.onrender.com
+- **Database**: PostgreSQL on Render
+
+See [PRODUCTION_ENV_SETUP.md](./PRODUCTION_ENV_SETUP.md) for detailed setup instructions.
 
 ---
 

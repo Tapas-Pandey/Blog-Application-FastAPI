@@ -13,8 +13,9 @@ app = FastAPI()
 # CORS - Allow local dev and production URLs
 CORS_ORIGINS_ENV = os.getenv("CORS_ORIGINS", "")
 CORS_ORIGINS = [origin.strip() for origin in CORS_ORIGINS_ENV.split(",") if origin.strip()]
-# Always allow localhost for development
+# Always allow localhost for development and production frontend
 CORS_ORIGINS.append("http://localhost:5173")
+CORS_ORIGINS.append("https://blog-application-theta-sand.vercel.app")
 
 app.add_middleware(
     CORSMiddleware,

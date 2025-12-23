@@ -151,13 +151,26 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions on deploying to:
 ## Environment Variables
 
 ### Backend
-- `SECRET_KEY` - JWT secret key
+- `SECRET_KEY` - JWT secret key (generate with: `openssl rand -hex 32`)
 - `ALGORITHM` - JWT algorithm (default: HS256)
 - `DATABASE_URL` - Database connection string
 - `CORS_ORIGINS` - Comma-separated list of allowed origins
 
+**Production Values:**
+- `DATABASE_URL`: `postgresql://bloguser:KIK5k4N1z349pUlFHEmBbfdJJIVIM4z0@dpg-d55087re5dus73bsqpd0-a/blogdb_qmgm`
+- `CORS_ORIGINS`: `https://blog-application-theta-sand.vercel.app,http://localhost:5173`
+
 ### Frontend
 - `VITE_API_URL` - Backend API URL
+
+**Production Value:**
+- `VITE_API_URL`: `https://blog-application-fastapi.onrender.com`
+
+### Production URLs
+- **Frontend**: https://blog-application-theta-sand.vercel.app/
+- **Backend**: https://blog-application-fastapi.onrender.com
+
+See [PRODUCTION_ENV_SETUP.md](./PRODUCTION_ENV_SETUP.md) for detailed setup instructions.
 
 ## License
 
