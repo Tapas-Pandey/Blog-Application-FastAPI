@@ -99,9 +99,7 @@ Frontend will run on `http://localhost:5173`
 
 ## Deployment
 
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions on deploying to:
-- Vercel/Netlify (Frontend)
-- Render/Railway (Backend)
+See [DEPLOY.md](./DEPLOY.md) for step-by-step deployment instructions.
 
 ## Project Structure
 
@@ -123,7 +121,7 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions on deploying to:
 │   │   ├── api/         # API configuration
 │   │   └── App.jsx      # Main app component
 │   └── package.json    # Node dependencies
-└── DEPLOYMENT.md        # Deployment guide
+└── DEPLOY.md            # Deployment guide
 ```
 
 ## API Endpoints
@@ -156,21 +154,10 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions on deploying to:
 - `DATABASE_URL` - Database connection string
 - `CORS_ORIGINS` - Comma-separated list of allowed origins
 
-**Production Values:**
-- `DATABASE_URL`: `postgresql://bloguser:KIK5k4N1z349pUlFHEmBbfdJJIVIM4z0@dpg-d55087re5dus73bsqpd0-a/blogdb_qmgm`
-- `CORS_ORIGINS`: `https://blog-application-theta-sand.vercel.app,http://localhost:5173`
-
 ### Frontend
 - `VITE_API_URL` - Backend API URL
 
-**Production Value:**
-- `VITE_API_URL`: `https://blog-application-fastapi.onrender.com`
-
-### Production URLs
-- **Frontend**: https://blog-application-theta-sand.vercel.app/
-- **Backend**: https://blog-application-fastapi.onrender.com
-
-See [PRODUCTION_ENV_SETUP.md](./PRODUCTION_ENV_SETUP.md) for detailed setup instructions.
+See [DEPLOY.md](./DEPLOY.md) for detailed setup instructions.
 
 ## License
 
